@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 
 {
   targets.genericLinux.enable = true;
@@ -112,6 +118,12 @@
       enableOrgMode = true;
       enableYaml = true;
       enablePython = true;
+    };
+
+    internet.firefox = {
+      enable = true;
+
+      search.engines.enableNixPackages = true;
     };
   };
 }

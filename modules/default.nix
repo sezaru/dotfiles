@@ -4,5 +4,6 @@
   imports = [
     ./compositor.nix
     ./editors
+    ./internet
   ];
 }
