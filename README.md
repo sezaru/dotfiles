@@ -19,19 +19,19 @@ Fetch this repo:
 ``` shell
 mkdir ~/projects
 
-git clone https://github.com/sezaru/dotfiles.git projects/dotfiles
+git clone https://github.com/sezaru/dotfiles.git ~/projects/dotfiles
 ```
 
 Link the `home-manager` directory to `.config`:
 
 ``` shell
-ln -s $HOME/projects/dotfiles/home-manager ~/.config/home-manager
+ln -s $HOME/projects/dotfiles $HOME/.config/home-manager
 ```
 
 Initialize home manager:
 
 ``` shell
-nix run home-manager/release-24.05 -- --switch
+nix run home-manager/release-24.05 -- switch
 ```
 
 Set shell to be managed by home manager: 
@@ -40,4 +40,16 @@ Set shell to be managed by home manager:
 echo $(which fish) | sudo tee -a /etc/shells
 
 chsh -s $(which fish)
+```
+
+Remove bash files:
+
+``` shell
+rm -rf .bash*
+```
+
+Install doom
+
+``` shell
+doom install
 ```
