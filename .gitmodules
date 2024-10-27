@@ -1,3 +1,6 @@
 [submodule "modules/editors/emacs/emacs"]
 	path = modules/editors/emacs/emacs
 	url = https://github.com/doomemacs/doomemacs
+[submodule "modules/internet/firefox/firefox-gnome-theme"]
+	path = modules/internet/firefox/firefox-gnome-theme
+	url = https://github.com/rafaelmardojai/firefox-gnome-theme.git
