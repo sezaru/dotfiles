@@ -23,20 +23,6 @@
     # Terminal
     fish
 
-    # Development - Emacs - Nix
-    nixfmt-rfc-style
-
-    # Development - Emacs - Shell script linting
-    shellcheck-minimal
-
-    # Development - Emacs - Web
-    html-tidy
-    stylelint
-    jsbeautifier
-
-    # Development - Languages
-    elixir_1_17
-    erlang_27
 
     # Chat
     signal-desktop
@@ -111,6 +97,19 @@
     editors.emacs = {
       enable = true;
       default = true;
+
+      enableElixir = true;
+      enableErlang = true;
+      enableWeb = true;
+      enableShell = true;
+      enableNix = true;
+      enableRust = true;
+      enableMarkdown = true;
+      enableJavascript = true;
+      enableJson = true;
+      enableOrgMode = true;
+      enableYaml = true;
+      enablePython = true;
     };
   };
 }
