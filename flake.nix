@@ -13,7 +13,7 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = "aarch64-linux";
+      system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."sezdocs" = home-manager.lib.homeManagerConfiguration {
@@ -23,9 +23,6 @@
           ./home.nix
           ./modules
         ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
