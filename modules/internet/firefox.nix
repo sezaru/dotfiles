@@ -73,7 +73,7 @@ in
             definedAliases = [ "@np" ];
           };
 
-          "Youtube" = {
+          "Youtube" = mkIf cfg.search.engines.enableYoutube {
             urls = [
               {
                 template = "https://www.youtube.com/results";
@@ -94,7 +94,7 @@ in
             definedAliases = [ "@y" ];
           };
 
-          "SearXNG" = {
+          "SearXNG" = mkIf cfg.search.engines.enableSearXNG {
             urls = [
               {
                 template = "https://search.home.sezdm.com/search";

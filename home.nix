@@ -120,7 +120,11 @@
     internet.firefox = {
       enable = true;
 
-      search.engines.enableNixPackages = true;
+      search.engines = {
+        enableNixPackages = true;
+        enableYoutube = true;
+        enableSearXNG = true;
+      };
     };
   };
 }
