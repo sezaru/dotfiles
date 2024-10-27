@@ -74,6 +74,11 @@ in
         settings = { };
 
         search.engines = {
+          "Google".metaData.alias = "@g";
+          "Bing".metaData.hidden = true;
+          "DuckDuckGo".metaData.hidden = true;
+          "Wikipedia (en)".metaData.hidden = true;
+
           "Nix Packages" = mkIf cfg.search.engines.enableNixPackages {
             urls = [
               {
