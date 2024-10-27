@@ -16,7 +16,7 @@ let
       epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]
     );
 
-  elixirPkgs = with pkgs;  [
+  elixirPkgs = with pkgs; [
     elixir
     elixir-ls
   ];
@@ -171,28 +171,30 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      emacs
+    home.packages =
+      with pkgs;
+      [
+        emacs
 
-      # Doom dependencies
-      git
-      ripgrep
-      gnutls
-      fd
-      (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-    ]
-    ++ lists.optionals cfg.enableElixir elixirPkgs
-    ++ lists.optionals cfg.enableErlang elixirPkgs
-    ++ lists.optionals cfg.enableWeb webPkgs
-    ++ lists.optionals cfg.enableShell shellPkgs
-    ++ lists.optionals cfg.enableNix nixPkgs
-    ++ lists.optionals cfg.enableRust rustPkgs
-    ++ lists.optionals cfg.enableMarkdown markdownPkgs
-    ++ lists.optionals cfg.enableJavascript javascriptPkgs
-    ++ lists.optionals cfg.enableJson jsonPkgs
-    ++ lists.optionals cfg.enableOrgMode orgModePkgs
-    ++ lists.optionals cfg.enableYaml yamlPkgs
-    ++ lists.optionals cfg.enablePython pythonPkgs;
+        # Doom dependencies
+        git
+        ripgrep
+        gnutls
+        fd
+        (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      ]
+      ++ lists.optionals cfg.enableElixir elixirPkgs
+      ++ lists.optionals cfg.enableErlang elixirPkgs
+      ++ lists.optionals cfg.enableWeb webPkgs
+      ++ lists.optionals cfg.enableShell shellPkgs
+      ++ lists.optionals cfg.enableNix nixPkgs
+      ++ lists.optionals cfg.enableRust rustPkgs
+      ++ lists.optionals cfg.enableMarkdown markdownPkgs
+      ++ lists.optionals cfg.enableJavascript javascriptPkgs
+      ++ lists.optionals cfg.enableJson jsonPkgs
+      ++ lists.optionals cfg.enableOrgMode orgModePkgs
+      ++ lists.optionals cfg.enableYaml yamlPkgs
+      ++ lists.optionals cfg.enablePython pythonPkgs;
 
     home.sessionPath = [
       "$HOME/.config/emacs/bin"
