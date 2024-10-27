@@ -80,6 +80,10 @@
     interactiveShellInit = ''
       # Disable greeting
       set fish_greeting
+
+      # Since we don't have fish installed in the system, we workaround it by
+      # calling the nix fish script explicitly
+      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
     '';
   };
 
