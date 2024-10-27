@@ -1,0 +1,3 @@
+[submodule "modules/editors/emacs/emacs"]
+	path = modules/editors/emacs/emacs
+	url = https://github.com/doomemacs/doomemacs
