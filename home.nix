@@ -23,6 +23,8 @@
     # Terminal
     fish
 
+    # Development
+    flyctl
 
     # Chat
     signal-desktop
