@@ -1,3 +1,5 @@
+# Installation
+
 Remove Fedora Silverblue Firefox:
 
 ``` shell
@@ -19,7 +21,7 @@ Fetch this repo:
 ``` shell
 mkdir ~/projects
 
-git clone https://github.com/sezaru/dotfiles.git ~/projects/dotfiles
+git clone --recursive https://github.com/sezaru/dotfiles.git ~/projects/dotfiles
 ```
 
 Link the `home-manager` directory to `.config`:
@@ -52,4 +54,26 @@ Install doom
 
 ``` shell
 doom install
+```
+
+# Update
+
+To update the dotfiles, first run:
+
+``` shell
+cd $HOME/.config/home-manager
+
+git pull --recurse-submodules
+```
+
+If a new submodule was added and you don't have it yet, then you also need to run:
+
+``` shell
+git submodule update --init
+```
+
+And then:
+
+``` shell
+home-manager switch
 ```
