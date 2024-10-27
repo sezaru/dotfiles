@@ -74,7 +74,7 @@ let
     yaml-language-server
   ];
 
-  pythonPkgs = with pkgs: [
+  pythonPkgs = with pkgs; [
     isort
     pipenv
     python312Packages.pytest
