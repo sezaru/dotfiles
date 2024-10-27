@@ -48,8 +48,30 @@ in
     programs.firefox = {
       enable = true;
 
+      vendorPath = ".mozilla";
+      configPath = ".mozilla/firefox";
+
       profiles.sezdocs = {
         bookmarks = [ ];
+
+        extraConfig = builtins.readFile ./firefox/firefox-gnome-theme/configuration/user.js;
+
+        userChrome =
+          builtins.replaceStrings
+            [
+              "theme/"
+              "customChrome.css"
+            ]
+            [
+              "../../gnome-theme/"
+              "../../customChrome.css"
+            ]
+            (builtins.readFile ./firefox/firefox-gnome-theme/userChrome.css);
+        userContent = builtins.replaceStrings [ "theme/" ] [ "../../gnome-theme/" ] (
+          builtins.readFile ./firefox/firefox-gnome-theme/userContent.css
+        );
+
+        settings = { };
 
         search.engines = {
           "Nix Packages" = mkIf cfg.search.engines.enableNixPackages {
@@ -128,6 +150,21 @@ in
           darkreader
           sidebery
         ];
+      };
+    };
+
+    home.file = {
+      ".mozilla/firefox/gnome-theme" = {
+        source = ./firefox/firefox-gnome-theme/theme;
+        recursive = true;
+      };
+      ".mozilla/firefox/customChrome.css" = {
+        text = ''
+          /* hides the native tabs */
+          #TabsToolbar {
+            visibility: collapse;
+          }
+        '';
       };
     };
   };
