@@ -216,9 +216,10 @@ in
     };
 
     home.activation = {
-      helloWorld = hm.dag.entryAfter [ "installPackages" ] ''
+      installEmacsDoom = hm.dag.entryAfter [ "installPackages" ] ''
         if ! [ -d "$HOME/.config/emacs" ]; then
-          $DRY_RUN_CMD ${getExe pkgs.git} clone --depth 1 https://github.com/doomemacs/doomemacs $HOME/.config/emacs
+          $DRY_RUN_CMD cp -r --no-preserve=all ${./emacs/emacs} $HOME/.config/emacs
+          $DRY_RUN_CMD chmod +x $HOME/.config/emacs/bin/*
         fi
       '';
     };
